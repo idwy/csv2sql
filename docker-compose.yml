@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "${SQL_PORT}:${SQL_PORT}"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOTPASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - .env
+
+  app:
+    build: .
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+    tty: true
