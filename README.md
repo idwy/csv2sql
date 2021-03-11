@@ -1,5 +1,5 @@
 
-# Data Engineer/Scientist Test
+# Data project
 
 ## High level architecture of the application :
 
